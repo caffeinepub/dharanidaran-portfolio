@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/assets/fonts/CabinetGrotesk-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/assets/fonts/GeneralSans-Variable.woff2') format('woff2');
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* ── Forest green + amber/gold palette ── */
+    /* Backgrounds */
+    --background:    0.11 0.028 148;
+    --foreground:    0.94 0.025 88;
+
+    /* Cards */
+    --card:          0.155 0.032 148;
+    --card-foreground: 0.94 0.025 88;
+    --popover:       0.155 0.032 148;
+    --popover-foreground: 0.94 0.025 88;
+
+    /* Primary — warm amber/gold */
+    --primary:       0.74 0.185 78;
+    --primary-foreground: 0.10 0.025 148;
+
+    /* Secondary */
+    --secondary:     0.20 0.035 148;
+    --secondary-foreground: 0.88 0.02 88;
+
+    /* Muted */
+    --muted:         0.19 0.028 148;
+    --muted-foreground: 0.56 0.035 130;
+
+    /* Accent — deeper gold */
+    --accent:        0.68 0.165 70;
+    --accent-foreground: 0.10 0.025 148;
+
+    /* Utility */
+    --destructive:   0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border:        0.26 0.038 148;
+    --input:         0.20 0.035 148;
+    --ring:          0.74 0.185 78;
+
+    /* Charts */
+    --chart-1: 0.74 0.185 78;
+    --chart-2: 0.65 0.14 148;
+    --chart-3: 0.70 0.16 55;
+    --chart-4: 0.62 0.18 200;
+    --chart-5: 0.68 0.20 30;
+
+    /* Sidebar */
+    --sidebar:          0.13 0.030 148;
+    --sidebar-foreground: 0.94 0.025 88;
+    --sidebar-primary:  0.74 0.185 78;
+    --sidebar-primary-foreground: 0.10 0.025 148;
+    --sidebar-accent:   0.20 0.035 148;
+    --sidebar-accent-foreground: 0.88 0.02 88;
+    --sidebar-border:   0.26 0.038 148;
+    --sidebar-ring:     0.74 0.185 78;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'General Sans', 'Bricolage Grotesque', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  /* Cabinet Grotesk for display headings */
+  .font-display {
+    font-family: 'Cabinet Grotesk', 'General Sans', sans-serif;
+  }
+
+  /* General Sans for subheadings */
+  .font-body {
+    font-family: 'General Sans', system-ui, sans-serif;
+  }
+
+  /* Amber/gold gradient text */
+  .text-gradient {
+    background: linear-gradient(
+      130deg,
+      oklch(0.85 0.18 90),
+      oklch(0.74 0.185 78),
+      oklch(0.62 0.16 62)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle green gradient text */
+  .text-gradient-green {
+    background: linear-gradient(
+      130deg,
+      oklch(0.70 0.14 148),
+      oklch(0.58 0.12 160)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-amber {
+    box-shadow:
+      0 0 24px oklch(0.74 0.185 78 / 0.30),
+      0 0 48px oklch(0.74 0.185 78 / 0.12);
+  }
+
+  .card-hover {
+    transition: transform 0.28s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.28s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 24px 48px oklch(0 0 0 / 0.45),
+      0 0 28px oklch(0.74 0.185 78 / 0.18);
+  }
+
+  .nav-blur {
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+  }
+
+  /* Atmospheric forest mesh background */
+  .mesh-bg {
+    background-image:
+      radial-gradient(ellipse at 15% 25%, oklch(0.35 0.08 148 / 0.22) 0%, transparent 52%),
+      radial-gradient(ellipse at 85% 70%, oklch(0.50 0.10 148 / 0.10) 0%, transparent 48%),
+      radial-gradient(ellipse at 50% 100%, oklch(0.74 0.185 78 / 0.06) 0%, transparent 40%),
+      linear-gradient(180deg, oklch(0.11 0.028 148) 0%, oklch(0.115 0.030 148) 100%);
+  }
+
+  .section-divider {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(0.74 0.185 78 / 0.35),
+      transparent
+    );
+    height: 1px;
+    width: 100%;
+  }
+
+  /* Geometric grid overlay for hero */
+  .hero-grid {
+    background-image:
+      linear-gradient(oklch(0.74 0.185 78 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.74 0.185 78 / 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Noise texture via SVG filter */
+  .noise {
+    position: relative;
+  }
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+  }
+}
