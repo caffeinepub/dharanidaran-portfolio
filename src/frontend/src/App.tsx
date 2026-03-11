@@ -297,7 +297,7 @@ export default function App() {
                     {/* Name overlay */}
                     <div className="absolute bottom-0 inset-x-0 p-4">
                       <p className="font-display font-bold text-xl text-foreground">
-                        Dharanidaran I
+                        DHARANIDARAN
                       </p>
                       <p className="text-sm text-primary font-medium">
                         Software Developer
