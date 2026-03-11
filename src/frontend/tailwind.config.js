@@ -16,9 +16,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["'Cabinet Grotesk'", "'General Sans'", "sans-serif"],
-        body: ["'General Sans'", "system-ui", "sans-serif"],
-        sans: ["'General Sans'", "system-ui", "sans-serif"],
+        display: ["'Plus Jakarta Sans'", "'Bricolage Grotesque'", "sans-serif"],
+        body: ["'Outfit'", "'General Sans'", "system-ui", "sans-serif"],
+        sans: ["'Outfit'", "'General Sans'", "system-ui", "sans-serif"],
+        mono: ["'Geist Mono'", "monospace"],
       },
       colors: {
         border: "oklch(var(--border))",
@@ -79,7 +80,9 @@ export default {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
-        "amber-glow": "0 0 24px oklch(0.74 0.185 78 / 0.30), 0 0 48px oklch(0.74 0.185 78 / 0.12)",
+        "blue-glow": "0 0 32px oklch(0.62 0.22 252 / 0.25), 0 0 64px oklch(0.62 0.22 252 / 0.10)",
+        "blue-glow-sm": "0 0 12px oklch(0.62 0.22 252 / 0.35)",
+        "card-hover": "0 8px 32px oklch(0 0 0 / 0.40), 0 2px 8px oklch(0 0 0 / 0.20)",
       },
       keyframes: {
         "accordion-down": {
@@ -94,11 +97,16 @@ export default {
           "0%": { backgroundPosition: "-200% center" },
           "100%": { backgroundPosition: "200% center" },
         },
+        "pulse-blue": {
+          "0%, 100%": { boxShadow: "0 0 8px oklch(0.62 0.22 252 / 0.4)" },
+          "50%": { boxShadow: "0 0 20px oklch(0.62 0.22 252 / 0.7)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         shimmer: "shimmer 3s linear infinite",
+        "pulse-blue": "pulse-blue 2s ease-in-out infinite",
       },
     },
   },
