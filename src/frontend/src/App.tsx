@@ -232,9 +232,7 @@ export default function App() {
                 </div>
 
                 <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold leading-none mb-4">
-                  <span className="text-foreground">Dharani</span>
-                  <br />
-                  <span className="gradient-text">daran</span>
+                  <span className="gradient-text">DHARANIDARAN</span>
                 </h1>
 
                 <p className="text-lg md:text-xl text-muted-foreground font-medium mb-6">
