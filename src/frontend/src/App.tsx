@@ -11,6 +11,7 @@ import {
   MapPin,
   Menu,
   Phone,
+  Star,
   User,
   X,
 } from "lucide-react";
@@ -70,9 +71,6 @@ function SkillChip({ name, category }: { name: string; category: string }) {
     <motion.div
       whileHover={{ scale: 1.05, y: -2 }}
       className="group relative px-4 py-3 rounded-lg bg-card border border-border hover:border-primary/50 transition-all duration-200 cursor-default"
-      style={{
-        boxShadow: "none",
-      }}
     >
       <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 blue-glow-sm" />
       <p className="text-sm font-semibold text-foreground relative z-10">
@@ -93,7 +91,6 @@ export default function App() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
-      // Determine active section
       const sections = NAV_LINKS.map((l) => l.id);
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = sectionRefs.current[sections[i]];
@@ -153,7 +150,6 @@ export default function App() {
             D<span className="text-primary">.</span>
           </button>
 
-          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <button
@@ -172,7 +168,6 @@ export default function App() {
             ))}
           </div>
 
-          {/* Mobile menu toggle */}
           <button
             type="button"
             className="md:hidden text-foreground p-2"
@@ -183,7 +178,6 @@ export default function App() {
           </button>
         </nav>
 
-        {/* Mobile drawer */}
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
@@ -218,7 +212,6 @@ export default function App() {
         >
           <div className="max-w-6xl mx-auto px-6 py-20 w-full">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left: text */}
               <motion.div
                 initial={{ opacity: 0, x: -32 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -265,7 +258,6 @@ export default function App() {
                 </div>
               </motion.div>
 
-              {/* Right: portrait card */}
               <motion.div
                 initial={{ opacity: 0, x: 32 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -273,7 +265,6 @@ export default function App() {
                 className="flex justify-center lg:justify-end"
               >
                 <div className="relative">
-                  {/* Ambient glow */}
                   <div
                     className="absolute -inset-8 rounded-2xl pointer-events-none"
                     style={{
@@ -281,20 +272,16 @@ export default function App() {
                         "radial-gradient(ellipse at center, oklch(0.62 0.22 252 / 0.15) 0%, transparent 70%)",
                     }}
                   />
-                  {/* Offset border decoration */}
                   <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-primary/30" />
                   <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-2xl border border-primary/15" />
 
-                  {/* Portrait card */}
                   <div className="relative w-72 h-96 md:w-80 md:h-[420px] rounded-2xl overflow-hidden border border-border">
                     <img
                       src="/assets/uploads/1773150394224-1.png"
                       alt="Dharanidaran"
                       className="w-full h-full object-cover object-top"
                     />
-                    {/* Gradient fade bottom */}
                     <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[oklch(0.10_0.018_255)] via-[oklch(0.10_0.018_255/0.7)] to-transparent" />
-                    {/* Name overlay */}
                     <div className="absolute bottom-0 inset-x-0 p-4">
                       <p className="font-display font-bold text-xl text-foreground">
                         DHARANIDARAN
@@ -303,7 +290,6 @@ export default function App() {
                         Software Developer
                       </p>
                     </div>
-                    {/* Open to work badge */}
                     <div className="absolute top-3 left-3">
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-primary/50 text-primary text-xs font-bold">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
@@ -330,7 +316,7 @@ export default function App() {
                   </span>{" "}
                   — a dedicated software developer and B.Sc. IT student at{" "}
                   <span className="text-foreground font-semibold">
-                    Sankara College of Arts and Science
+                    Sankara College of Science and Commerce
                   </span>
                   . I'm passionate about technology and its potential to solve
                   meaningful problems.
@@ -367,6 +353,11 @@ export default function App() {
                     icon: <Briefcase size={14} />,
                     label: "Status",
                     value: "Open to Work",
+                  },
+                  {
+                    icon: <Star size={14} />,
+                    label: "Role",
+                    value: "Vice President, Smart Youth Club",
                   },
                 ].map((item) => (
                   <div
@@ -430,7 +421,6 @@ export default function App() {
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   whileHover={{ y: -4 }}
                   className="group p-6 rounded-xl bg-card border border-border hover:border-primary/40 transition-all duration-300 cursor-default"
-                  style={{}}
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-2 rounded-lg bg-primary/10">
@@ -473,21 +463,20 @@ export default function App() {
         >
           <div className="max-w-6xl mx-auto px-6">
             <SectionHeader label="04 — Education" title="Academics" />
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              data-ocid="academics.card"
-              className="max-w-2xl relative"
-            >
+            <div className="max-w-2xl relative">
               {/* Vertical timeline line */}
               <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent" />
 
-              <div className="pl-16 pb-2">
-                {/* Timeline dot */}
+              {/* ── B.Sc. IT ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                data-ocid="academics.item.1"
+                className="pl-16 pb-8"
+              >
                 <div className="absolute left-[18px] top-6 w-4 h-4 rounded-full bg-primary blue-glow-sm" />
-
                 <div className="p-6 rounded-xl bg-card border border-border">
                   <div className="flex items-start gap-4">
                     <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0">
@@ -500,7 +489,7 @@ export default function App() {
                             B.Sc. Information Technology
                           </h3>
                           <p className="text-sm text-primary font-medium mt-0.5">
-                            Sankara College of Arts and Science
+                            Sankara College of Science and Commerce
                           </p>
                         </div>
                         <Badge
@@ -513,7 +502,7 @@ export default function App() {
                       <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <Calendar size={12} />
-                          Graduated: 2025 — 2028
+                          2025 — 2028
                         </span>
                         <span className="flex items-center gap-1">
                           <MapPin size={12} />
@@ -526,11 +515,61 @@ export default function App() {
                         development, data structures, algorithms, and emerging
                         technologies.
                       </p>
+                      {/* Smart Youth Club */}
+                      <div className="mt-4 pt-4 border-t border-border">
+                        <p className="text-xs font-mono tracking-widest uppercase text-primary/70 mb-2">
+                          Leadership
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <div className="p-1.5 rounded-md bg-primary/10">
+                            <Star size={13} className="text-primary" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-semibold text-foreground">
+                              Vice President
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                              Smart Youth Club
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+
+              {/* ── SSLC placeholder ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                data-ocid="academics.item.2"
+                className="pl-16 pb-2"
+              >
+                <div
+                  className="absolute left-[18px] w-4 h-4 rounded-full bg-card border-2 border-primary/50"
+                  style={{ top: "calc(100% - 80px)" }}
+                />
+                <div className="p-6 rounded-xl bg-card border border-border border-dashed opacity-60">
+                  <div className="flex items-center gap-3">
+                    <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0">
+                      <GraduationCap size={22} className="text-primary/60" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">
+                        SSLC
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        Please share your school name and year to complete this
+                        card.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
@@ -610,7 +649,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Decorative side */}
               <div className="hidden lg:flex items-center justify-center">
                 <div className="relative w-64 h-64">
                   <div
