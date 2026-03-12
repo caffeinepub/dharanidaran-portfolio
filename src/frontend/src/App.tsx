@@ -145,9 +145,9 @@ export default function App() {
           <button
             type="button"
             onClick={() => scrollTo("home")}
-            className="font-display font-bold text-lg tracking-tight text-foreground hover:text-primary transition-colors"
+            className="font-display font-bold text-xl tracking-tight text-primary hover:text-primary/80 transition-colors"
           >
-            D<span className="text-primary">.</span>
+            D<span className="text-primary/70">.</span>
           </button>
 
           <div className="hidden md:flex items-center gap-1">
